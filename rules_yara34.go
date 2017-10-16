@@ -44,7 +44,7 @@ func (r *Rules) ScanFileDescriptor(fd uintptr, flags ScanFlags, timeout time.Dur
 	defer callbackData.Delete(id)
 	err = newError(C._yr_rules_scan_fd(
 		r.cptr,
-		C.HANDLE(C.int(fd)),
+		C.HANDLE(fd),
 		C.int(flags),
 		C.YR_CALLBACK_FUNC(C.rules_callback),
 		unsafe.Pointer(id),
