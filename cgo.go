@@ -5,9 +5,9 @@
 // found in the LICENSE file.
 
 package yara
-
-// #cgo !no_pkg_config               pkg-config: --cflags yara
-// #cgo !no_pkg_config,!yara_static  pkg-config: --libs yara
-// #cgo !no_pkg_config,yara_static   pkg-config: --static --libs yara
-// #cgo no_pkg_config                LDFLAGS:    -lyara
+/*
+#cgo CFLAGS: -IC:/yara/win64/include
+#cgo amd64 LDFLAGS: -LC:/yara/win64/lib -llibyara64
+#cgo 386 LDFLAGS: -LC:/yara/32/lib -llibyara
+*/
 import "C"
